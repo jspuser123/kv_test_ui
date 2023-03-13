@@ -1,0 +1,397 @@
+
+<Box@MDBoxLayout>:
+    id:boxcolor
+    md_bg_color:app.theme_cls.primary_dark
+    spacing:"3dp"
+    padding:'2dp'
+
+
+<Crd@MDCard>:
+  
+    size_hint:None,None
+    height:"300dp"
+    width:"300dp"
+    
+<Lyt@MDRelativeLayout>:
+   
+
+<Btn1@MDRaisedButton>:
+    
+   
+<Txt1@MDTextField>:
+    id:txtin
+    md_bg_color:app.theme_cls.primary_palette
+   
+
+
+
+
+<F1>:
+    Box:
+        orientation:'vertical'
+        id:boxcolor1
+        Lyt:
+            
+
+            Crd:
+                orientation:'vertical'
+                spacing:"3dp"
+                padding:'3dp'
+                pos_hint: {"center_x":.5,"center_y":.5}
+                md_bg_color:app.theme_cls.primary_dark
+                
+        
+                        
+                Mbtn2:
+                    text: "Table"
+                    #on_release: app.show_date_picker()
+                    size_hint:.9,.1
+                    on_press: root.manager.current = 'sc1'
+                    pos_hint: {"center_x": .5}
+                        
+
+                Mbtn2:
+                    text: "Chats"
+                    #on_release: app.show_date_picker()
+                    size_hint:.9,.1
+                    pos_hint: {"center_x": .5}
+                    on_press: root.manager.current = 'sc5'
+                Mbtn2:
+                    text: "Maps"
+                    #on_release: app.show_date_picker()
+                    size_hint:.9,.1
+                    pos_hint: {"center_x": .5}
+                    on_press: root.manager.current = 'sc6'
+                Mbtn2:
+                    text: "color"
+                    #on_release: app.show_date_picker()
+                    size_hint:.9,.1
+                    pos_hint: {"center_x": .5}
+                    on_press: root.manager.current = 'sc7'
+
+   
+            
+<Main1>:
+    tbl:tbl
+  
+
+    Box:
+    
+      
+        id:boxcolor2       
+        orientation:'vertical'
+        
+        
+    
+        MDTopAppBar:
+            
+            title: "MDTopAppBar"
+            pos_hint: {"top": 1}
+            
+        Box:
+            size_hint:None,None
+            size:"300dp","60dp"
+        
+            Txt1:
+                id:search1
+                hint_text: "search name and place"
+                mode: "rectangle"
+                on_text:root.search() 
+                
+        Box:
+            id:tbl
+            orientation:'vertical'
+        Box:
+            size_hint:None,None
+            orientation:'vertical'
+            height:dp(100)
+            width:dp(300)
+        
+            spacing:"0dp"
+            Box:
+                id:butt1
+            
+                Btn1:
+                    text: "add"
+                    #on_release: app.show_date_picker()
+                    on_press: root.manager.current = 'sc2'
+                Btn1:
+                    text: "del"
+                    #on_release: app.show_date_picker()
+                    on_press: root.remove_row()
+                Btn1:
+                    text: "update"
+                    #on_release: app.show_date_picker()
+                    on_press: root.manager.current = 'sc3'
+            
+            Box:
+        
+                
+                
+                Btn1:
+                    text: "list"
+                    on_release:root.list()
+                    
+                Btn1:
+                    text: "clear"
+                    #on_release: app.show_date_picker()
+                    on_press: root.clear()
+                Btn1:
+                    text: "export"
+                    #on_release: app.show_date_picker()
+                    on_press: root.manager.current = 'sc4'
+            # Btn1:
+                #    text: 'theme'
+            
+                #   on_release: app.theme_cls.show_theme_picker()
+             
+<Add>:
+    Box:
+        id:boxcolor3
+        
+        orientation:'vertical'
+       
+        #md_bg_color:app.theme_cls.primary_light
+        padding:"3dp"
+        spacing:"0dp"
+           
+        
+            
+               
+             
+        Txt1:
+            id:tdate
+            hint_text: "Date"
+            mode: "rectangle"
+            
+            text:"date1"
+               
+            
+        Txt1:
+            id:t1
+            hint_text: "Name"
+            mode: "rectangle"
+        Txt1:
+            id:t2
+            hint_text: "Addres"
+            mode: "rectangle"
+        Txt1:
+            id:t3
+            hint_text: "Amount"
+            mode: "rectangle"
+        Txt1:
+            id:t4
+            hint_text: "Extra"
+            mode: "rectangle"
+        MDSwitch:
+            id:t5
+            width: dp(40)
+            on_active: root.sw(*args)
+            
+   
+        Txt1:
+            id:t6
+            hint_text: "balance"
+            mode: "rectangle"
+        Box:
+            
+            size_hint:.6,.1
+           
+        
+            Btn1:
+
+                text: 'Add'
+                on_press: root.addbutton()
+            Btn1:
+                text: 'Date'
+                on_release: app.show_date_picker()
+            
+        
+            Btn1:
+                text: 'Back to menu'
+                on_press: root.manager.current = 'sc1'
+      
+<Update>:
+ 
+    Box:
+        id:boxcolor4
+        orientation:'vertical'
+        
+       
+        #md_bg_color:app.theme_cls.primary_light
+        padding:"3dp"
+        spacing:"0dp"
+        Txt1:
+            id:id3
+            hint_text: "id"
+            mode: "rectangle"
+      
+          
+ 
+        Txt1:
+            id:da
+            hint_text: "Date"
+            mode: "rectangle"
+            text:"Date"
+
+        Txt1:
+            id:pl
+            hint_text: "name"
+            mode: "rectangle"
+        Txt1:
+            id:na
+            hint_text: "Address"
+            mode: "rectangle"
+        Txt1:
+            id:am
+            hint_text: "amount"
+            mode: "rectangle"
+        Txt1:
+            id:ex
+            hint_text: "extra"
+            mode: "rectangle"
+        MDSwitch:
+            id:swi
+            width: dp(40)
+            on_active: root.sw(*args)
+        Txt1:
+            id:blan
+            hint_text: "balance"
+            mode: "rectangle"
+        Box:
+            
+            size_hint:.6,.1
+            Btn1:
+                text: 'Add'
+                on_press:root.upd()
+            Btn1:
+                text: 'Date'
+                on_release: app.show_date_picker()
+            Btn1:
+                text: 'Back to menu'
+                on_press: root.manager.current = 'sc1'
+<Export>:
+    Box:
+
+        orientation:'vertical'
+        id:boxcolor5
+        md_bg_color:app.theme_cls.primary_dark
+        Lyt:
+            md_bg_color:app.theme_cls.primary_dark
+
+            Crd:
+                orientation:'vertical'
+                spacing:"3dp"
+                padding:'3dp'
+                pos_hint: {"center_x":.5,"center_y":.5}
+                md_bg_color:app.theme_cls.primary_dark
+                Mbtn2:
+                    text:"openfile"
+                    on_press:app.open_file_mgr()
+                    size_hint:.9,.1
+
+                Mbtn2:
+                    text: 'Gen Pdf'
+                    on_press: app.pdffun()
+                    size_hint:.9,.1
+               
+                Mbtn2:
+                    text: 'Pdf view'
+                    on_press: app.open_pdf_file()
+                    size_hint:.9,.1
+
+                Mbtn2:
+                    text: 'Back to tbl'
+                    on_press: root.manager.current = 'sc1'
+                    size_hint:.9,.1
+                Mbtn2:
+                    text: 'Back to menu'
+                    on_press: root.manager.current = 'sc0'
+                    size_hint:.9,.1
+<Carddev>:
+
+    ScrollView:
+        size_hint_y:1
+        size_hint_x:1
+        do_scroll_x:True
+        do_scroll_y:False
+        Box:
+            
+            size_hint: None, 1
+            
+            width:"1000dp"
+            md_bg_color:app.theme_cls.primary_dark
+            Lyt: 
+                md_bg_color:app.theme_cls.primary_dark
+              #  size_hint: None, None
+               
+                Mcrd1:
+                    id:akpiechat
+                    size_hint:.1,.5
+                    pos_hint: {"center_x":.1,"center_y":.5}
+
+              
+                Mcrd1:
+                    id:akbarchat
+                    size_hint:.1,.5
+                    pos_hint: {"center_x":.3,"center_y":.5}
+                   
+                    
+                    
+           
+                Mcrd1:
+                    id:aklinechat
+                    size_hint:.1,.5
+                    pos_hint: {"center_x":.5,"center_y":.5}
+                   
+
+                
+
+    Btn1:
+        text: 'Back to menu'
+        on_press: root.manager.current = 'sc0'
+<Gmap>:
+    Box:
+        orientation:'vertical'
+        Box:
+            id:mapping
+            
+        Box:
+            size_hint:None,None
+            Btn1:
+                text: 'map'
+                on_press: root.on_map()
+
+            Btn1:
+                text: 'Back to menu'
+                on_press: root.manager.current = 'sc1'
+<Color1>:
+    Box:
+        orientation:'vertical'
+      
+        Btn1:
+            text: 'pink'
+            on_press:self.theme_cls.primary_palette='Pink'
+        Btn1:
+            text: 'blue'
+            on_press:self.theme_cls.primary_palette='Blue'
+        Btn1:
+            text: 'red'
+            on_press:self.theme_cls.primary_palette='Red'
+        Btn1:
+            text: 'yellow'
+            on_press:self.theme_cls.primary_palette='Yellow'
+        Btn1:
+            text: 'orange'
+            on_press:self.theme_cls.primary_palette='Orange'
+          
+        Btn1:
+            text: 'Back to menu'
+            on_press: root.manager.current = 'sc1'
+
+
+                
+               
+
+
+

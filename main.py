@@ -17,6 +17,7 @@ from kivymd.uix.pickers import MDColorPicker
 from typing import Union
 from kivymd_extensions.akivymd.uix.charts import AKBarChart,AKPieChart,AKLineChart
 from kivymd.uix.filemanager import MDFileManager
+import os
 
 #import matplotlib
 #matplotlib.use('module://kivy.garden.matplotlib.backend_kivy')
@@ -491,7 +492,14 @@ class MainApp(MDApp):
         self.dir=path
         self.exitmanger()
     def open_file_mgr(self):
-        self.file.show('/')
+        from kivy.utils import platform
+        
+        if platform == "android":
+            from android.permissions import request_permissions, Permission
+            request_permissions([Permission.READ_EXTERNAL_STORAGE,Permission.WRITE_EXTERNAL_STORAGE])
+            self.file.show('/')
+        else:
+            Snackbar(text="[color=#ddbb34]pls need primisstion![/color]",snackbar_x="5dp",snackbar_y="10dp",size_hint_x=.9,bg_color=("red")).open()
 
     def exitmanger(self):
         self.file.close()

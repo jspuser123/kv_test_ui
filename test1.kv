@@ -23,6 +23,30 @@
 <Lbl@MDLabel>:
    
 
+<Loading_screen>:
+    Box:
+        orientation:'vertical'
+        md_bg_color:"#2C4A4E"
+        Lyt:
+            Image:
+
+                source: 'kali1.png'
+                size_hint:None,None
+                pos_hint: {'center_x': 0.5,'center_y': 0.85}
+            Image:
+                source:"loading.gif"
+                size_hint:None,None
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                allow_stretch: True
+                anim_delay: 0
+                anim_reset: True
+            Image:
+                source:"loading1.gif"
+                size_hint:None,None
+                pos_hint: {'center_x': 0.5,'center_y': 0.3}
+                allow_stretch: True
+                anim_delay: 0
+                anim_reset: True
 
 <Login_page>:
     Box:

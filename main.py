@@ -17,12 +17,17 @@ from kivymd.uix.pickers import MDColorPicker
 from typing import Union
 from kivymd_extensions.akivymd.uix.charts import AKBarChart,AKPieChart,AKLineChart
 from kivymd.uix.filemanager import MDFileManager
+from kivy.clock import Clock
 
 #import matplotlib
 #matplotlib.use('module://kivy.garden.matplotlib.backend_kivy')
 #from kivy.uix.image import Image
 #from kivy.clock import Clock
 kv=Builder.load_file("test1.kv")
+
+
+class Loading_screen(Screen):
+    pass
 
 class Login_page(Screen):
     def login_validate(self):
@@ -468,6 +473,7 @@ class MainApp(MDApp):
     def build(self):
         self.theme_cls.theme_style='Dark'
         self.theme_cls.primary_palette='Purple'
+        self.sm.add_widget(Loading_screen(name='loading'))
         self.sm.add_widget(Login_page(name='login'))
         self.sm.add_widget(F1(name='sc0'))
         self.sm.add_widget(Main1(name='sc1'))
@@ -479,7 +485,12 @@ class MainApp(MDApp):
         self.sm.add_widget(Color1(name='sc7'))          
         
         return self.sm
-  
+    
+    def on_start(self):
+        Clock.schedule_once(self.execute_fun,10)
+
+    def execute_fun(self,dt):
+        self.sm.current = 'login'
 
  
     

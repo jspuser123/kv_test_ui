@@ -6,11 +6,7 @@
     padding:'2dp'
 
 
-<Crd@MDCard>:
-  
-    size_hint:None,None
-    height:"300dp"
-    width:"300dp"
+<Crd@MDCard>:  
     
 <Lyt@MDRelativeLayout>:
    
@@ -21,55 +17,151 @@
 <Txt1@MDTextField>:
     id:txtin
     md_bg_color:app.theme_cls.primary_palette
+
+<IBtn2@MDIconButton>:
+
+<Lbl@MDLabel>:
    
 
 
+<Login_page>:
+    Box:
+        orientation:'vertical'
+        md_bg_color:"#2C4A4E"
+        Lyt:
+            Image:
+
+                source: 'kali1.png'
+                size_hint:None,None
+                pos_hint: {'center_x': 0.5,'center_y': 0.85}
+
+           
+            Crd:
+             
+                md_bg_color:"#093D46"
+                size_hint: 0.8, .4
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                line_color:"#FF5B75"
+                radius:25,25,25,25
+                Lyt:
+                    Txt1:
+                        id:user1
+                        hint_text:"username"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+                        size_hint: 0.8, None
+                    Txt1:
+                        id:pass1
+                        hint_text:"password"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        size_hint: 0.8, None
+
+                    Btn1:
+                        text:"Login"                        
+                        md_bg_color:"#FF5B75"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.2}
+                        on_press:root.login_validate()
+            Lbl:
+                text:"kali linux"
+                halign:"center"
+                pos_hint: {'center_y': 0.73}
+                color:"white"
+ 
+            Lbl:
+                text:"kivymd"
+                halign:"center"
+                pos_hint: {'center_y': 0.15}
+                color:"#17D4A3"
 
 
 <F1>:
     Box:
         orientation:'vertical'
-        id:boxcolor1
+        md_bg_color:"#2C4A4E"
         Lyt:
             
 
             Crd:
-                orientation:'vertical'
-                spacing:"3dp"
-                padding:'3dp'
-                pos_hint: {"center_x":.5,"center_y":.5}
-                md_bg_color:app.theme_cls.primary_dark
-                
-        
+             
+                md_bg_color:"#093D46"
+                size_hint: 0.4, .2
+                pos_hint: {'center_x': 0.25,'center_y': 0.8}
+                line_color: 0, 0, 1, 1
+                radius:25,25,25,25
+                on_press: root.manager.current = 'sc1'
+                Lyt:
+                   
+                   
+                    IBtn2:
+                        icon:"table-large"                          
+                        md_bg_color:"#093D46"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5} 
+                    Lbl:
+                        text:"Table"
+                        pos_hint:{'center_x': 0.87,'center_y': 0.2}  
                         
-                Mbtn2:
-                    text: "Table"
-                    #on_release: app.show_date_picker()
-                    size_hint:.9,.1
-                    on_press: root.manager.current = 'sc1'
-                    pos_hint: {"center_x": .5}
+                 
+
+            Crd:
+                md_bg_color:"#17D4A3"
+                size_hint: 0.4, .2
+                pos_hint: {'center_x': 0.75,'center_y': 0.8}
+                radius:25,25,25,25
+                on_press: root.manager.current = 'sc5'
+                Lyt:
+                    IBtn2:
+                        icon:"chart-bar"                          
+                        md_bg_color:"#17D4A3"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        text: "Chats"
+                    Lbl:
+                        text:"Charts"
+                        pos_hint:{'center_x': 0.87,'center_y': 0.2}  
                         
 
-                Mbtn2:
-                    text: "Chats"
-                    #on_release: app.show_date_picker()
-                    size_hint:.9,.1
-                    pos_hint: {"center_x": .5}
-                    on_press: root.manager.current = 'sc5'
-                Mbtn2:
-                    text: "Maps"
-                    #on_release: app.show_date_picker()
-                    size_hint:.9,.1
-                    pos_hint: {"center_x": .5}
-                    on_press: root.manager.current = 'sc6'
-                Mbtn2:
-                    text: "color"
-                    #on_release: app.show_date_picker()
-                    size_hint:.9,.1
-                    pos_hint: {"center_x": .5}
-                    on_press: root.manager.current = 'sc7'
-
-   
+            Crd:
+                md_bg_color:"#17D4A3"
+                size_hint: 0.4, .2
+                pos_hint: {'center_x': 0.25,'center_y': 0.55}
+                radius:25,25,25,25
+                on_press: root.manager.current = 'sc7'
+                Lyt:
+                    IBtn2:
+                        icon:"palette"                          
+                        md_bg_color:"#17D4A3"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        text: "color"
+                    Lbl:
+                        text:"Color"
+                        pos_hint:{'center_x': 0.87,'center_y': 0.2}   
+            Crd:
+                md_bg_color:"#093D46"
+                size_hint: 0.4, .2
+                pos_hint: {'center_x': 0.75,'center_y': 0.55}
+                radius:25,25,25,25
+                on_press: root.manager.current = 'sc6'
+                Lyt:
+                    IBtn2:
+                        icon:"map-marker"                          
+                        md_bg_color:"#093D46"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        text: "Maps"
+                    Lbl:
+                        text:"maps"
+                        pos_hint:{'center_x': 0.87,'center_y': 0.2}   
+            Crd:
+                md_bg_color:"#093D46"
+                size_hint: 0.9, .3
+                pos_hint: {'center_x': 0.5,'center_y': 0.2}
+                radius:25,25,25,25
+                Lyt:
+                    IBtn2:
+                        icon:"language-python"                          
+                        md_bg_color:"#17D4A3"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    Lbl:
+                        text:"python"
+                        pos_hint:{'center_x': 0.92,'center_y': 0.2}   
+                        
             
 <Main1>:
     tbl:tbl
@@ -81,8 +173,7 @@
         id:boxcolor2       
         orientation:'vertical'
         
-        
-    
+           
         MDTopAppBar:
             
             title: "MDTopAppBar"
@@ -224,9 +315,7 @@
         Txt1:
             id:id3
             hint_text: "id"
-            mode: "rectangle"
-      
-          
+            mode: "rectangle"        
  
         Txt1:
             id:da
@@ -313,43 +402,40 @@
     ScrollView:
         size_hint_y:1
         size_hint_x:1
-        do_scroll_x:True
-        do_scroll_y:False
+        # do_scroll_x:True
+        # do_scroll_y: False
         Box:
+            orientation:'vertical'
+            size_hint: 1, None
             
-            size_hint: None, 1
-            
-            width:"1000dp"
-            md_bg_color:app.theme_cls.primary_dark
+            height:"700dp"
+           
             Lyt: 
                 md_bg_color:app.theme_cls.primary_dark
               #  size_hint: None, None
                
                 Mcrd1:
                     id:akpiechat
-                    size_hint:.1,.5
-                    pos_hint: {"center_x":.1,"center_y":.5}
-
+                    size_hint:.8,.2
+                    pos_hint: {"center_x":.5,"center_y":.8}
               
                 Mcrd1:
                     id:akbarchat
-                    size_hint:.1,.5
-                    pos_hint: {"center_x":.3,"center_y":.5}
+                    size_hint:.8,.2
+                    pos_hint: {"center_x":.5,"center_y":.5}
                    
-                    
-                    
+                      
            
                 Mcrd1:
                     id:aklinechat
-                    size_hint:.1,.5
-                    pos_hint: {"center_x":.5,"center_y":.5}
-                   
+                    size_hint:.8,.2
+                    pos_hint: {"center_x":.5,"center_y":.21}
+                                
 
-                
-
-    Btn1:
-        text: 'Back to menu'
-        on_press: root.manager.current = 'sc0'
+                Btn1:
+                    text: 'Back to menu'
+                    on_press: root.manager.current = 'sc0'
+                    pos_hint: {"center_x":.5,"center_y":.03}
 <Gmap>:
     Box:
         orientation:'vertical'

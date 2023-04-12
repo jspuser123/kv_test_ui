@@ -24,6 +24,16 @@ from kivymd.uix.filemanager import MDFileManager
 #from kivy.clock import Clock
 kv=Builder.load_file("test1.kv")
 
+class Login_page(Screen):
+    def login_validate(self):
+        a=self.ids.user1.text
+        b=self.ids.pass1.text
+        if a == 'jagan' and b == "win12#":
+            self.manager.current = 'sc0'
+        else:
+            Snackbar(text="[color=#ddbb34]login failed try agin[/color]",snackbar_x="5dp",snackbar_y="10dp",size_hint_x=.9,bg_color=(0, 0, 1, 1)).open()
+
+
 
 class F1(Screen):
     pass
@@ -50,14 +60,14 @@ class Mcrd1(MDCard,HoverBehavior):
 
     def on_enter(self, *args):
         self.md_bg_color = ("red")
-        Animation(size_hint=(.2, .6),d=self.ti).start(self)
+        Animation(size_hint=(.9, .3),d=self.ti).start(self)
        
        
 
     def on_leave(self, *args):
        
         self.md_bg_color = self.theme_cls.primary_light
-        Animation(size_hint=(.1, .5),d=self.ti).start(self)
+        Animation(size_hint=(.8, .2),d=self.ti).start(self)
       
        
 
@@ -161,8 +171,9 @@ class Main1(Screen):
         a=self.ids.search1.text
         
         j=self.dbf
-
-       
+      
+            
+        
         data=[i for i in j if a in i]
         self.data_tables.row_data=[(x) for x in data]
     def on_update(self,*args):
@@ -457,6 +468,7 @@ class MainApp(MDApp):
     def build(self):
         self.theme_cls.theme_style='Dark'
         self.theme_cls.primary_palette='Purple'
+        self.sm.add_widget(Login_page(name='login'))
         self.sm.add_widget(F1(name='sc0'))
         self.sm.add_widget(Main1(name='sc1'))
         self.sm.add_widget(Add(name='sc2'))
@@ -491,7 +503,10 @@ class MainApp(MDApp):
         self.dir=path
         self.exitmanger()
     def open_file_mgr(self):
-        self.file.show('/')
+        if platform == "android":
+            self.file.show(f'{os.environ["EXTERNAL_STORAGE"]}/')
+        else:
+            self.file.show('/')
 
     def exitmanger(self):
         self.file.close()

@@ -19,8 +19,6 @@ from kivymd_extensions.akivymd.uix.charts import AKBarChart,AKPieChart,AKLineCha
 from kivymd.uix.filemanager import MDFileManager
 from kivy.clock import Clock
 from random import randrange
-
-
 #import matplotlib
 #matplotlib.use('module://kivy.garden.matplotlib.backend_kivy')
 #from kivy.uix.image import Image
@@ -63,14 +61,11 @@ class Mbtn2(MDRaisedButton,HoverBehavior):
 class Mcrd1(MDCard,HoverBehavior):
    
     ti=.4
- 
-
     def on_enter(self, *args):
         self.md_bg_color = ("red")
         Animation(size_hint=(.9, .3),d=self.ti).start(self)
        
-       
-
+    
     def on_leave(self, *args):
        
         self.md_bg_color = self.theme_cls.primary_light

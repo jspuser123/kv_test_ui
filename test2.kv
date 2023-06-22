@@ -1,0 +1,458 @@
+      
+<Login_page>:
+    Box:
+        orientation:'vertical'
+        md_bg_color:"#2C4A4E"
+        Lyt:
+            Image:
+
+                source: 'kali1.png'
+                size_hint:None,None
+                pos_hint: {'center_x': 0.5,'center_y': 0.85}
+
+           
+            Crd:
+             
+                md_bg_color:"#093D46"
+                size_hint: 0.8, .4
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                line_color:"#FF5B75"
+                radius:25,25,25,25
+                Lyt:
+                    Txt1:
+                        id:user1
+                        hint_text:"username"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+                        size_hint: 0.8, None
+                    Txt1:
+                        id:pass1
+                        hint_text:"password"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        size_hint: 0.8, None
+
+                    Btn1:
+                        text:"Login"                        
+                        md_bg_color:"#FF5B75"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.2}
+                        on_press:root.login_validate()
+            Lbl:
+                text:"kali linux"
+                halign:"center"
+                pos_hint: {'center_y': 0.73}
+                color:"white"
+ 
+            Lbl:
+                text:"kivymd"
+                halign:"center"
+                pos_hint: {'center_y': 0.15}
+                color:"#17D4A3"
+
+
+<F1>:
+    Box:
+        orientation:'vertical'
+        md_bg_color:"#2C4A4E"
+        Lyt:
+            
+
+            Crd:
+             
+                md_bg_color:"#093D46"
+                size_hint: 0.4, .2
+                pos_hint: {'center_x': 0.25,'center_y': 0.8}
+                line_color: 0, 0, 1, 1
+                radius:25,25,25,25
+                on_press: root.manager.current = 'sc1'
+                Lyt:
+                   
+                   
+                    IBtn2:
+                        icon:"table-large"                          
+                        md_bg_color:"#093D46"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5} 
+                    Lbl:
+                        text:"Table"
+                        pos_hint:{'center_x': 0.87,'center_y': 0.2}  
+                        
+                 
+
+            Crd:
+                md_bg_color:"#17D4A3"
+                size_hint: 0.4, .2
+                pos_hint: {'center_x': 0.75,'center_y': 0.8}
+                radius:25,25,25,25
+                on_press: root.manager.current = 'sc5'
+                Lyt:
+                    IBtn2:
+                        icon:"chart-bar"                          
+                        md_bg_color:"#17D4A3"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        text: "Chats"
+                    Lbl:
+                        text:"Charts"
+                        pos_hint:{'center_x': 0.87,'center_y': 0.2}  
+                        
+
+            Crd:
+                md_bg_color:"#17D4A3"
+                size_hint: 0.4, .2
+                pos_hint: {'center_x': 0.25,'center_y': 0.55}
+                radius:25,25,25,25
+                on_press: root.manager.current = 'sc7'
+                Lyt:
+                    IBtn2:
+                        icon:"palette"                          
+                        md_bg_color:"#17D4A3"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        text: "color"
+                    Lbl:
+                        text:"Color"
+                        pos_hint:{'center_x': 0.87,'center_y': 0.2}   
+            Crd:
+                md_bg_color:"#093D46"
+                size_hint: 0.4, .2
+                pos_hint: {'center_x': 0.75,'center_y': 0.55}
+                radius:25,25,25,25
+                on_press: root.manager.current = 'sc6'
+                Lyt:
+                    IBtn2:
+                        icon:"map-marker"                          
+                        md_bg_color:"#093D46"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        text: "Maps"
+                    Lbl:
+                        text:"maps"
+                        pos_hint:{'center_x': 0.87,'center_y': 0.2}   
+            Crd:
+                md_bg_color:"#093D46"
+                size_hint: 0.9, .3
+                pos_hint: {'center_x': 0.5,'center_y': 0.2}
+                radius:25,25,25,25
+                Lyt:
+                    IBtn2:
+                        icon:"language-python"                          
+                        md_bg_color:"#17D4A3"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    Lbl:
+                        text:"python"
+                        pos_hint:{'center_x': 0.92,'center_y': 0.2}   
+                        
+            
+<Main1>:
+    tbl:tbl
+  
+
+    Box:
+    
+      
+        id:boxcolor2       
+        orientation:'vertical'
+        
+           
+        MDTopAppBar:
+            
+            title: "MDTopAppBar"
+            pos_hint: {"top": 1}
+            
+        Box:
+            size_hint:None,None
+            size:"300dp","60dp"
+        
+            Txt1:
+                id:search1
+                hint_text: "search name and place"
+                mode: "rectangle"
+                on_text:root.search() 
+                
+        Box:
+            id:tbl
+            orientation:'vertical'
+        Box:
+            size_hint:None,None
+            orientation:'vertical'
+            height:dp(100)
+            width:dp(300)
+        
+            spacing:"0dp"
+            Box:
+                id:butt1
+            
+                Btn1:
+                    text: "add"
+                    #on_release: app.show_date_picker()
+                    on_press:root.manager.current = 'sc2'
+                Btn1:
+                    text: "del"
+                    #on_release: app.show_date_picker()
+                    on_press:root.remove_row()
+                Btn1:
+                    text: "update"
+                    #on_release: app.show_date_picker()
+                    on_press:root.manager.current = 'sc3'
+            
+            Box:
+        
+                
+                
+                Btn1:
+                    text: "list"
+                    on_release:root.list()
+                    
+                Btn1:
+                    text: "clear"
+                    #on_release: app.show_date_picker()
+                    on_press: root.clear()
+                Btn1:
+                    text: "export"
+                    #on_release: app.show_date_picker()
+                    on_press: root.manager.current = 'sc4'
+            # Btn1:
+                #    text: 'theme'
+            
+                #   on_release: app.theme_cls.show_theme_picker()
+             
+<Add>:
+    Box:
+        id:boxcolor3
+        
+        orientation:'vertical'
+       
+        #md_bg_color:app.theme_cls.primary_light
+        padding:"3dp"
+        spacing:"0dp"
+           
+        
+            
+               
+             
+        Txt1:
+            id:tdate
+            hint_text: "Date"
+            mode: "rectangle"
+            
+            text:"date1"
+               
+            
+        Txt1:
+            id:t1
+            hint_text: "Name"
+            mode: "rectangle"
+        Txt1:
+            id:t2
+            hint_text: "Addres"
+            mode: "rectangle"
+        Txt1:
+            id:t3
+            hint_text: "Amount"
+            mode: "rectangle"
+        Txt1:
+            id:t4
+            hint_text: "Extra"
+            mode: "rectangle"
+        MDSwitch:
+            id:t5
+            width: dp(40)
+            on_active: root.sw(*args)
+            
+   
+        Txt1:
+            id:t6
+            hint_text: "balance"
+            mode: "rectangle"
+        Box:
+            
+            size_hint:.6,.1
+           
+        
+            Btn1:
+
+                text: 'Add'
+                on_press: root.addbutton()
+            Btn1:
+                text: 'Date'
+                on_release: app.show_date_picker()
+            
+        
+            Btn1:
+                text: 'Back to menu'
+                on_press: root.manager.current = 'sc1'
+      
+<Update>:
+ 
+    Box:
+        id:boxcolor4
+        orientation:'vertical'
+        
+       
+        #md_bg_color:app.theme_cls.primary_light
+        padding:"3dp"
+        spacing:"0dp"
+        Txt1:
+            id:id3
+            hint_text: "id"
+            mode: "rectangle"        
+ 
+        Txt1:
+            id:da
+            hint_text: "Date"
+            mode: "rectangle"
+            text:"Date"
+
+        Txt1:
+            id:pl
+            hint_text: "name"
+            mode: "rectangle"
+        Txt1:
+            id:na
+            hint_text: "Address"
+            mode: "rectangle"
+        Txt1:
+            id:am
+            hint_text: "amount"
+            mode: "rectangle"
+        Txt1:
+            id:ex
+            hint_text: "extra"
+            mode: "rectangle"
+        MDSwitch:
+            id:swi
+            width: dp(40)
+            on_active: root.sw(*args)
+        Txt1:
+            id:blan
+            hint_text: "balance"
+            mode: "rectangle"
+        Box:
+            
+            size_hint:.6,.1
+            Btn1:
+                text: 'Add'
+                on_press:root.upd()
+            Btn1:
+                text: 'Date'
+                on_release: app.show_date_picker()
+            Btn1:
+                text: 'Back to menu'
+                on_press: root.manager.current = 'sc1'
+<Export>:
+    Box:
+
+        orientation:'vertical'
+        id:boxcolor5
+        md_bg_color:app.theme_cls.primary_dark
+        Lyt:
+            md_bg_color:app.theme_cls.primary_dark
+
+            Crd:
+                orientation:'vertical'
+                spacing:"3dp"
+                padding:'3dp'
+                pos_hint: {"center_x":.5,"center_y":.5}
+                md_bg_color:app.theme_cls.primary_dark
+                Mbtn2:
+                    text:"openfile"
+                    on_press:app.open_file_mgr()
+                    size_hint:.9,.1
+
+                Mbtn2:
+                    text: 'Gen Pdf'
+                    on_press: app.pdffun()
+                    size_hint:.9,.1
+               
+                Mbtn2:
+                    text: 'Pdf view'
+                    on_press: app.open_pdf_file()
+                    size_hint:.9,.1
+
+                Mbtn2:
+                    text: 'Back to tbl'
+                    on_press: root.manager.current = 'sc1'
+                    size_hint:.9,.1
+                Mbtn2:
+                    text: 'Back to menu'
+                    on_press: root.manager.current = 'sc0'
+                    size_hint:.9,.1
+<Carddev>:
+
+    ScrollView:
+        size_hint_y:1
+        size_hint_x:1
+        # do_scroll_x:True
+        # do_scroll_y: False
+        Box:
+            orientation:'vertical'
+            size_hint: 1, None
+            
+            height:"700dp"
+           
+            Lyt: 
+                md_bg_color:app.theme_cls.primary_dark
+              #  size_hint: None, None
+               
+                Mcrd1:
+                    id:akpiechat
+                    size_hint:.8,.2
+                    pos_hint: {"center_x":.5,"center_y":.8}
+              
+                Mcrd1:
+                    id:akbarchat
+                    size_hint:.8,.2
+                    pos_hint: {"center_x":.5,"center_y":.5}
+                   
+                      
+           
+                Mcrd1:
+                    id:aklinechat
+                    size_hint:.8,.2
+                    pos_hint: {"center_x":.5,"center_y":.21}
+                                
+
+                Btn1:
+                    text: 'Back to menu'
+                    on_press: root.manager.current = 'sc0'
+                    pos_hint: {"center_x":.5,"center_y":.03}
+<Gmap>:
+    Box:
+        orientation:'vertical'
+        Box:
+            id:mapping
+            
+        Box:
+            size_hint:None,None
+            Btn1:
+                text: 'map'
+                on_press: root.on_map()
+
+            Btn1:
+                text: 'Back to menu'
+                on_press: root.manager.current = 'sc1'
+<Color1>:
+    Box:
+        orientation:'vertical'
+      
+        Btn1:
+            text: 'pink'
+            on_press:self.theme_cls.primary_palette='Pink'
+        Btn1:
+            text: 'blue'
+            on_press:self.theme_cls.primary_palette='Blue'
+        Btn1:
+            text: 'red'
+            on_press:self.theme_cls.primary_palette='Red'
+        Btn1:
+            text: 'yellow'
+            on_press:self.theme_cls.primary_palette='Yellow'
+        Btn1:
+            text: 'orange'
+            on_press:self.theme_cls.primary_palette='Orange'
+          
+        Btn1:
+            text: 'Back to menu'
+            on_press: root.manager.current = 'sc1'
+
+
+                
+               
+
+
+

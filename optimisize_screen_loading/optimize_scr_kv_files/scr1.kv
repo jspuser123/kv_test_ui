@@ -1,0 +1,47 @@
+
+<S2>:
+ 
+    MDTopAppBar:
+        title: "MDLabel"
+        pos_hint: {'center_x': 0.5,'top':1}
+    MDCard:
+        size_hint:1,.7
+        radius:0,0,0,0
+        pos_hint: {'center_x': 0.5,'center_y':.5}
+        MDRecycleView:
+        	Grd:
+        		id:grd_id
+				cols:4
+        	
+                  
+    MDCard:
+    	pos_hint: {'center_x': 0.5,'center_y':.1}
+    	size_hint:1,.1
+	    MDRectangleFlatButton:
+	        text: "F1"
+	        theme_text_color: "Custom"
+	        text_color: "black"
+	        line_color: "red"
+	        on_press:root.manager.current='s1'
+	    MDRectangleFlatButton:
+	        text: 'idGet'
+	        theme_text_color: "Custom"
+	        text_color: "black"
+	        line_color: "red"
+	        on_press:root.id_getfun(args)
+	MDSpinner:
+        id:dash_spin
+        size_hint: None, None
+        size: dp(46), dp(46)
+        pos_hint: {'center_x': .5, 'center_y': .6}
+		
+	MDLabel:
+		id:persentage
+		halign:"center"
+		pos_hint: {'center_y': .5}
+<Grd>:
+	adaptive_height: True
+	padding:'8dp'
+    spacing:'8dp'
+    
+  

@@ -1,0 +1,22 @@
+
+
+<Txt1>:
+    hint_text_color_normal:app.theme_cls.opposite_bg_normal
+    line_color_normal:app.theme_cls.primary_light
+    text_color_normal:app.theme_cls.primary_light
+	
+<S1>:
+    
+    MDTopAppBar:
+        title: "MDLabel"
+        pos_hint: {'center_x': 0.5,'top':1}
+    MDRectangleFlatButton:
+        text: "Summry"
+        on_press:app.loading_scr('s2')
+        pos_hint: {'center_x': 0.5,'center_y':.5}
+    MDSpinner:
+        id:dash_spin_1
+        size_hint: None, None
+        size: dp(46), dp(46)
+        pos_hint: {'center_x': .5, 'center_y': .68}
+        active:False

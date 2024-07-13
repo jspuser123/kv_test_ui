@@ -1,10 +1,12 @@
 
-
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Gradient kivy_gradient.Gradient
 <Txt1>:
     hint_text_color_normal:app.theme_cls.opposite_bg_normal
     line_color_normal:app.theme_cls.primary_light
     text_color_normal:app.theme_cls.primary_light
-	
+
+<Lyt@RelativeLayout>:
 <S1>:
     
     MDTopAppBar:
@@ -20,3 +22,38 @@
         size: dp(46), dp(46)
         pos_hint: {'center_x': .5, 'center_y': .68}
         active:False
+<Spin>:
+    orientation: 'vertical'
+    size_hint:None,None
+    size:100,110
+    radius:10,10,10,10
+    md_bg_color:app.theme_cls.bg_normal
+    canvas:
+        Color:
+            rgba:get_color_from_hex('#FFE7F0')
+        Line:
+            width:5
+            ellipse:(self.x+19,self.y+40,self.height-50,self.width-40,0,360)
+    
+    canvas.after:
+        Color:
+            rgba:get_color_from_hex('#FF468A')
+        Line:
+            width:5
+            ellipse:(self.x+19,self.y+40,self.height-50,self.width-40,0,root.value*3.6)
+
+    Lyt:
+        MDLabel:
+            text:f'{root.value}%'
+            halign:"center"
+            pos_hint:{'center_y': .65}
+            bold:True
+            color:'FF468A'
+            font_size:'10sp'
+        MDLabel:
+            text:"LOADING..!"
+            halign:"center"
+            pos_hint:{'center_y': .2}
+            bold:True
+            color:'FF468A'
+            font_size:'10sp'

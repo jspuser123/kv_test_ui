@@ -12,7 +12,6 @@
         	Grd:
         		id:grd_id
 				cols:4
-        	
                   
     MDCard:
     	pos_hint: {'center_x': 0.5,'center_y':.1}
@@ -28,17 +27,30 @@
 	        theme_text_color: "Custom"
 	        text_color: "black"
 	        line_color: "red"
-	        on_press:root.id_getfun(args)
+	        on_press:root.test_chk()
 	MDSpinner:
         id:dash_spin
         size_hint: None, None
-        size: dp(46), dp(46)
-        pos_hint: {'center_x': .5, 'center_y': .6}
+        size: dp(56), dp(56)
+        pos_hint: {'center_x': .5, 'center_y': .5}
+		active:False
+		color:"pink"
 		
 	MDLabel:
 		id:persentage
 		halign:"center"
 		pos_hint: {'center_y': .5}
+	Spin:
+		id:spin_test
+		pos_hint:{'center_x': .5, 'center_y': .5}
+	# Image:
+	# 	id:spin_test1
+	# 	source:"test2.gif"
+	# 	pos_hint:{'center_x': .5, 'center_y': .5}
+	# 	#size_hint:.5,.5
+		
+	
+
 <Grd>:
 	adaptive_height: True
 	padding:'8dp'
